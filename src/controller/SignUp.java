@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.exception.ConstraintViolationException;
 
@@ -48,7 +49,9 @@ public class SignUp extends HttpServlet {
 			if(cpwd.equals(pwd)) {
 				String i=UserDao.register(u);
 				System.out.println(i+" registered");
-				resp.sendRedirect("signupsuccess.jsp");
+				HttpSession session = req.getSession();
+				session.setAttribute("email",email);
+				resp.sendRedirect("userdash.jsp");
 			}
 			else {
 				resp.sendRedirect("signup.jsp?msg=Passwords don't match!");
