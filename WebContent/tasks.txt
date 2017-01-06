@@ -1,0 +1,24 @@
+
+	//1.Site has a login screen: done
+
+	//2.User should be able to sign up with some minimal data: done
+
+	//3.unregistered users are not allowed into site: done
+
+	//4.Registered users can login using their credentials: done
+
+	//5.logged in users should be able to modify their profiles: done
+
+	//6.this data is displayed on their profile page: done
+
+	//7.users should be able to search for other people on the network
+	by their first names.: done
+
+	//8.clicking on a different user takes the user to the 
+	friends profile page: done
+
+	//9.users should be able to send friendship requests to other people: done
+
+	//10.users should be able to accept/reject friendship requests.: done
+	
+	

@@ -1,0 +1,68 @@
+@CHARSET "ISO-8859-1";
+.navbar
+{
+	background-color:indigo;
+}
+.navbar-brand
+{
+	color:white;
+}
+.navbar-brand:visited
+{
+	color:white;
+}
+.navbar-brand:hover
+{
+	color:white;
+}
+.topnavs
+{
+	color:white;
+}
+.topnavs:hover
+{
+	background-color:darkviolet !important;
+	color:white;
+}
+.navbar ul li:hover
+{
+	background-color:purple;
+}
+.userdetails
+{
+	margin:10%;
+}
+.userdetails table{
+	font-size:21px;
+	font-family: 'Arima Madurai', cursive;
+}
+.borderless td
+{
+	border-top:none!important;
+}
+.updatephoto li
+{
+	display:inline-block;
+	margin:20px 0px 0px -20px;
+}
+.updatephoto
+{
+	margin-left:-70px;
+}
+.footer
+{
+	background-color:gainsboro;
+	width:100%;
+	position:absolute;
+	left:0px;
+	right:0px;
+	bottom:0px;
+}
+.fa-pencil-square-o
+{
+	color:#aaa;
+}
+.fa-pencil-square-o:hover
+{
+	color:indigo;
+}
