@@ -24,8 +24,8 @@
 <%
 	String email = (String)session.getAttribute("email");
 	User u=UserDao.getUser(email);
-	String list1[]={u.getName(),"Suggested Friends"};
-	String list2[]={"userprofile.jsp","#"};
+	String list1[]={u.getName(),"Friends"};
+	String list2[]={"userprofile.jsp","friendlist.jsp"};
 %>
 
 <header>
