@@ -64,11 +64,22 @@ public class RequestDao {
 		} else {
 			session.delete(r);
 		}
-		
-		
-		
 		t.commit();
 		session.close();
+	}
+	public static List getFriendList(String email){
+		Session sess = new AnnotationConfiguration().configure().buildSessionFactory().openSession();
+    	Transaction t = sess.beginTransaction();
+    	t.begin();
+    	
+    	Criteria criteria = sess.createCriteria(Request.class);
+    	criteria.add(Restrictions.and(Restrictions.or(Restrictions.eq("key.sender",email),Restrictions.eq("key.receiver",email)),Restrictions.eq("state",1)));
+    	List list = criteria.list();
+    	
+    	t.commit();
+    	sess.close();
+		return list;
+		
 	}
 	
 		
