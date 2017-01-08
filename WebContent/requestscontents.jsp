@@ -15,6 +15,8 @@
 	String email = (String)session.getAttribute("email");
 	List list = RequestDao.getRequests(email);
 	Iterator i = list.iterator();
+	if(i.hasNext())
+	{
 	while(i.hasNext()) {
 		Request r = (Request)i.next();
 		if(r.getState()==0){
@@ -42,7 +44,11 @@
 						</div>
 				</div>
 			</li>
-			<%
+			<% }
+			else{ %>
+			<h3 style="font-family:'Arima Madurai',cursive;font-weight:600;">You have no Friend Requests</h3>
+			<%	
+			}
 		}
 	}
 %>

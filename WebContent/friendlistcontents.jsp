@@ -16,6 +16,8 @@
     	List list = RequestDao.getFriendList(email);
     	Iterator i = list.iterator();
     	User u =null;
+    	if(i.hasNext())
+    	{
     	while(i.hasNext()) {
     		Request r = (Request)i.next();
     		if(r.getSender().equals(email)){
@@ -44,6 +46,12 @@
 			</li>
     		<%
     	}
+    	}
+    	else{ %>
+    			<h2 style="font-family:'Arima Madurai',cursive;font-weight:600;">No Friends Yet</h2>
+    	<%
+    	}
     %>
     	</ul>
+    	
 	</div>
