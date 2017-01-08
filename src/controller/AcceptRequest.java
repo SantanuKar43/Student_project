@@ -21,7 +21,7 @@ public class AcceptRequest extends HttpServlet {
 		HttpSession session = req.getSession();
 		String receiver = (String)session.getAttribute("email");
 		RequestDao.handleRequest(sender, receiver, accept);
-		resp.sendRedirect("requests.jsp");
+		resp.sendRedirect("friendprofile.jsp?email="+sender);
 	}
 
 }
