@@ -45,11 +45,12 @@
 				</div>
 			</li>
 			<% }
-			else{ %>
-			<h3 style="font-family:'Arima Madurai',cursive;font-weight:600;">You have no Friend Requests</h3>
-			<%	
-			}
 		}
+	}
+			else { %>
+				<h3 style="font-family:'Arima Madurai',cursive;font-weight:600;">You have no Friend Requests</h3>
+			<%	
+	
 	}
 %>
 	</ul>
