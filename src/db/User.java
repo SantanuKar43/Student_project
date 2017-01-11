@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	String email;
-	String name,password,gender,dob;
+	String name,password,gender,dob,likes;
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -40,6 +40,12 @@ public class User {
 	}
 	public String getDob() {
 		return dob;
+	}
+	public void setLikes(String likes){
+		this.likes=likes;
+	}
+	public String getLikes(){
+		return likes;
 	}
 
 }

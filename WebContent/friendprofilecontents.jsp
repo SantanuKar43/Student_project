@@ -8,8 +8,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%
+    	String useremail=(String)session.getAttribute("email");
     	String email=request.getParameter("email");
     	User u=UserDao.getUser(email);
+    	String likes[] = null;
+    	int no_of_likes = 0;
+    	if(u.getLikes()!=null){
+    		likes=(u.getLikes()).split(",");
+    		no_of_likes = likes.length ;
+    	}
+    	
     	Photo p=PhotoDao.getPhoto(email);
     	String address=null;
     	try{
@@ -28,8 +36,21 @@
 					border-radius:100px;display:inline-block;margin-top:10px;">
 		</div>
 		<h2 style="font-family: 'Arima Madurai', cursive;font-weight:600;"><%=u.getName() %></h2>
-		
-			
+		<%
+			int ctr=0;
+			if(likes!=null){
+				for(String liker:likes){
+					if(liker.equals(useremail)){
+						ctr++;
+					}
+				}
+			}
+			if(ctr==0){
+		%>
+		<div><a href="controller.Like?email=<%=email %>" style="color:red"><i class="fa fa-heart-o"></i></a><span style="margin-left:5px" id="likes"><%=no_of_likes %></span></div>
+		<%} else { %>
+		<div><a href="controller.UnLike?email=<%=email %>" style="color:red"><i class="fa fa-heart"></i></a><span style="margin-left:5px" id="likes"><%=no_of_likes %></span></div>
+		<%} %>	
 			<div style="width:40%;height:auto;display:inline-block;word-wrap: break-word;margin-top:5px;text-align:center; border-top:1px solid #aaa">
 		
 				<p style="font-family: 'Lobster', cursive; font-size:18px;padding-top:10px;color:#90A4AE;">

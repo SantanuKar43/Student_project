@@ -69,4 +69,43 @@ public class UserDao {
 		session.close();
 		return list;
 	}
+	public static void setLike(String receiver,String liker){
+		Session session = new AnnotationConfiguration().configure().buildSessionFactory().openSession();
+		Transaction t = session.beginTransaction();
+		t.begin();
+		User u = (User)session.get(User.class,receiver);
+		String likes = u.getLikes();
+		if(likes==null){
+			likes="";
+		}
+		likes = likes+liker+",";
+		u.setLikes(likes);
+		session.update(u);
+		t.commit();
+		session.close();
+	}
+	public static void unLike(String receiver,String liker){
+		Session session = new AnnotationConfiguration().configure().buildSessionFactory().openSession();
+		Transaction t = session.beginTransaction();
+		t.begin();
+		
+		User u = (User)session.get(User.class,receiver);
+		String likes = u.getLikes();
+		if(likes==null){
+			likes="";
+		}
+		String array_of_likes[] = likes.split(",");
+		String temp="";
+		for(String s:array_of_likes){
+			if(!s.equals(liker)){
+				temp = temp+s+",";
+			}
+		}
+		likes = temp;
+		u.setLikes(likes);
+		session.update(u);
+		
+		t.commit();
+		session.close();
+	}
 }

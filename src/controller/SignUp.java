@@ -25,7 +25,7 @@ public class SignUp extends HttpServlet {
 		String dob = req.getParameter("dob");
 		String pwd = req.getParameter("pwd");
 		String cpwd = req.getParameter("cpwd");
-		
+		String likes = "";
 		//code to convert name to titlecase
 		name = name.trim();
 		name = name.toLowerCase();
@@ -45,6 +45,7 @@ public class SignUp extends HttpServlet {
 		u.setGender(gender);
 		u.setPassword(pwd);
 		u.setDob(dob);
+		u.setLikes(likes);
 		try {
 			if(cpwd.equals(pwd)) {
 				String i=UserDao.register(u);
